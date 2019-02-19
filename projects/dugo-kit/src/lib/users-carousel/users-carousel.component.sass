@@ -1,3 +1,5 @@
+@import '../../../../node_modules/bootstrap/scss/bootstrap'
+
 .owl-carousel
     .owl-item
         img
@@ -7,34 +9,42 @@
     .responsive-carousel-section
         .carousel-item
             visibility: hidden
+
 .owl-item
     width: 80px
     img
         height: 100% !important
+
 .responsive-carousel-section
+
     @media (min-width: 768px)
-        max-width: 800px
         margin: 0 auto
+
     .responsive-carousel
         max-width: 400px
         margin: 0 auto
+
     .control-prev, .control-next
         opacity: 1 !important
+
         .arrow
             width: 30px
             height: 30px
-            fill: getColor('brand')
+            fill: #004579
             cursor: pointer
             margin-top: 15px
+
             &.disabled
-                fill: getColor('icon')
+                fill: #DDDDDD
                 cursor: auto
+
         .profiloImg
             height: 100%
             border-radius: 50px
 
     .control-container-prev
         text-align: right
+
     .control-container-next
         text-align: left
 
@@ -48,28 +58,34 @@
             height: 55px
             padding: 1px
             margin: 0 auto
+            
             .panel-thumbnail  
                 width: 100%
                 height: 100%
+
     .active
         .panel-default
-            border: 3px solid getColor('brand')
+            border: 3px solid #004579
             border-radius: 50%
+
         .profileName
             font-weight: 600
+
     .profileName
-        color: getColor('icon')
+        color: #DDDDDD
         font-weight: 500
-        font-size: getFontSize('small_regular')
+        font-size: 22px
         margin-top: 5px
 
     .profileImg
         border-radius: 50%
         height: 100% !important
+
     .carousel-title
-        color: getColor('brand')
-        font-size: getFontSize('small_bold')
-        font-weight: getFontWeight('bold')
+        color: #004579
+        font-size: 22px
+        font-weight: bold
         margin-top: 10px
         margin-bottom: 20px
+        text-align: center
 
