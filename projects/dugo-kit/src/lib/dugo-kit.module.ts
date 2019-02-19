@@ -4,7 +4,6 @@ import { UsersCarousel } from './users-carousel/users-carousel.component';
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { SafeContentPipe } from './pipes/safe-content.pipe';
-import * as $ from "jquery";
 
 @NgModule({
   declarations: [
