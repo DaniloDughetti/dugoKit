@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { UsersCarousel } from 'dugo-kit';
 
 @Component({
   selector: 'app-root',
@@ -11,39 +10,31 @@ export class AppComponent {
   public userItems: Array<any> = new Array<any>();
 
   ngOnInit() {
-    // let carouselItem = new CarouselItem();
-    // carouselItem.id = 0;
-    // carouselItem.name = 'User 1';
-    // carouselItem.type = Constants.carouselItemTypeFromApi;
     this.userItems.push({
       id: 0,
-      name: 'User 0',
-      type: 0
+      name: 'Walter White',
+      imageUrl: 'https://i.kinja-img.com/gawker-media/image/upload/17ogioga7phd7jpg.jpg'
     },{
       id: 1,
-      name: 'User 1',
-      type: 0
+      name: 'Jesse Pinkman',
+      imageUrl: 'https://valentinadelgizzo.files.wordpress.com/2015/06/season_4_-_jesse.jpg'
     },{
       id: 2,
-      name: 'User 2',
-      type: 0
+      name: 'Unknown'
     },{
       id: 3,
-      name: 'User 3',
-      type: 0
+      name: 'User 3'
     },{
       id: 4,
-      name: 'User 4',
-      type: 0
+      name: 'User 4'
     },{
       id: 5,
-      name: 'User 5',
-      type: 0
+      name: 'User 5'
     });
   }
 
   showUserForm(event: any) {
-    console.log(event);
+    console.log("Clicked on: " + event.name);
   }
 
 }

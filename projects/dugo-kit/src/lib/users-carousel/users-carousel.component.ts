@@ -15,6 +15,8 @@ export class UsersCarousel implements OnInit, OnDestroy {
   @Input() addItems;
   @Input() title;
 
+  @Input() styleSettings;
+
   @Output() itemSelectedOutput: EventEmitter<any> = new EventEmitter();
 
   itemSelected: any;
@@ -24,11 +26,31 @@ export class UsersCarousel implements OnInit, OnDestroy {
 
   itemIndex = 0;
   itemCount = 0;
-  
 
+  /*
+    User custom settings
+  */
+  arrowColor = '#3166D6';
+  arrowColorDisabled = '#DDDDDD';
+  
+  titleColor = '#3166D6';
+  titleSize = '24px';
+  titleWeight = 'bold';
+
+  isInfoLabelToShow = true;
+  infoLabelColor = '#3166D6';
+  infoLabelSize = '22px';
+  infoLabelWeight = 'bold';
+
+  borderColor = '#3166D6';
+
+  addButtonLabel = 'Add';
+  
   constructor() { }
 
   ngOnInit() {
+
+    this.initStyleSettings();
 
     this.canIGoLeft = false;
     this.canIGoRight = false;
@@ -45,7 +67,7 @@ export class UsersCarousel implements OnInit, OnDestroy {
       const additem: CarouselItem = {
         id: -1,
         imageUrl: 'assets/images/add_button.svg',
-        name: 'Aggiungi',
+        name: this.addButtonLabel,
         type: Constants.carouselItemTypeAdd
       }
 
@@ -119,6 +141,56 @@ export class UsersCarousel implements OnInit, OnDestroy {
     }
   }
 
+  private initStyleSettings() {
+    if (this.styleSettings != null) {
+
+      if (this.styleSettings.arrowColor) {
+        this.arrowColor = this.styleSettings.arrowColor;
+      }
+
+      if (this.styleSettings.arrowColorDisabled) {
+        this.arrowColorDisabled = this.styleSettings.arrowColorDisabled;
+      }
+  
+      if (this.styleSettings.titleColor) {
+        this.titleColor = this.styleSettings.titleColor;
+      }
+  
+      if (this.styleSettings.titleSize) {
+        this.titleSize = this.styleSettings.titleSize;
+      }
+  
+      if (this.styleSettings.titleWeight) {
+        this.titleWeight = this.styleSettings.titleWeight;
+      }
+  
+      if (this.styleSettings.isInfoLabelToShow) {
+        this.isInfoLabelToShow = this.styleSettings.isInfoLabelToShow;
+      }
+  
+      if (this.styleSettings.infoLabelColor) {
+        this.infoLabelColor = this.styleSettings.infoLabelColor;
+      }
+  
+      if (this.styleSettings.infoLabelSize) {
+        this.infoLabelSize = this.styleSettings.infoLabelSize;
+      }
+  
+      if (this.styleSettings.infoLabelWeight) {
+        this.infoLabelWeight = this.styleSettings.infoLabelWeight;
+      }
+
+      if (this.styleSettings.borderColor) {
+        this.borderColor = this.styleSettings.borderColor;
+      }
+
+      if (this.styleSettings.addButtonLabel) {
+        this.addButtonLabel = this.styleSettings.addButtonLabel;
+      }
+    }
+  }
+
   ngOnDestroy() {
   }
+
 }
