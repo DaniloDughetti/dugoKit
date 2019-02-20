@@ -22,6 +22,10 @@ export class UsersCarousel implements OnInit, OnDestroy {
   canIGoLeft = false;
   canIGoRight = true;
 
+  itemIndex = 0;
+  itemCount = 0;
+  
+
   constructor() { }
 
   ngOnInit() {
@@ -77,7 +81,14 @@ export class UsersCarousel implements OnInit, OnDestroy {
           dots: false,
           mouseDrag: false,
           slideBy: thisComponent.itemsNumberPerRow,
+          
+          onTranslate: function (event) {
+            thisComponent.itemIndex = event.item.index;
+            thisComponent.itemCount = event.item.count;
+          },
           onTranslated: function (event) {
+            thisComponent.itemIndex = event.item.index;
+            thisComponent.itemCount = event.item.count;
             thisComponent.setNavigationButtons(event.item.index, event.item.count);
           }
         });
@@ -91,10 +102,12 @@ export class UsersCarousel implements OnInit, OnDestroy {
 
   goCarouselNext() {
     $('.owl-carousel').trigger('next.owl.carousel');
+    this.setNavigationButtons(this.itemIndex, this.itemCount);
   }
 
   goCarouselPrev() {
     $('.owl-carousel').trigger('prev.owl.carousel');
+    this.setNavigationButtons(this.itemIndex, this.itemCount);
   }
 
   selectedItem(item: any) {
